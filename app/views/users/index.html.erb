@@ -1,0 +1,7 @@
+<% @users.each do |user| %>
+Name: <%= user.name %><br>
+Admin: <%= user.admin %><br><br>
+<% if user.admin %>
+Post Count: <%= user.posts.count %><br><br>
+<% end %>
+<% end %>

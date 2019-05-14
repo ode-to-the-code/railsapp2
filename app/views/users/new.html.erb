@@ -1,0 +1,19 @@
+hello there
+<br>
+<%= form_for @user do |f| %>
+<br>
+<%= f.label :name %>
+<%= f.text_field :name %><br>
+<br>
+<%= f.label :password %>
+<%= f.text_field :password %><br>
+<br>
+
+<%= f.label :admin %>
+<%= f.check_box :admin %><br>
+
+<br>
+
+<%= f.submit %>
+
+<% end %>
