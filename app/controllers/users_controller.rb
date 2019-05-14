@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    binding.pry
+    # binding.pry
     # raise params.inspect
     @user = User.find_by_id(params[:id])
   end
