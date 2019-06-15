@@ -1,2 +1,19 @@
-<%= @post.title %><br>
-<%= @post.content %>
+Post Title: <%= @post.title %><br>
+Post Content: <%= @post.content %>
+<%# binding.pry %><br>
+Post User's ID: <%= @post.user_id %><br>
+
+<%# binding.pry %>
+Post User's Name: <%= User.find(@post.user_id).name unless nil %><br><br>
+
+<p>Comments:</p>
+<% @post.comments.each do |comment| %>
+  <div><%= link_to comment.title, comment_path(comment) %></div>
+<% end %>
+
+<%# binding.pry %>
+<br>
+<%#= link_to "See comments on this post?", post_comments(@post.id) %>
+<br>
+<%#= link_to "Make a new comment on this post?", "/posts/:post_id/comments/new" %>
+<%= link_to "Make a new comment on this post?", new_post_comment_path(@post) %>

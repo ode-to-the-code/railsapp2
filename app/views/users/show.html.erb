@@ -1,2 +1,7 @@
 Name: <%= @user.name %><br><br>
 <!-- Admin? <%#= @user.admin %> -->
+Comments: <% @user.comments.each do |comment| %><br><br>
+<%= link_to comment.title, comment_path(comment) %><br>
+<%= comment.content %><br>
+
+<% end %>

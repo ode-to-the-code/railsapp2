@@ -1,0 +1,10 @@
+All Requested Comments:
+
+<% @comments.each do |comment| %>
+<br><br>
+Title: <%= comment.title %><br>
+Content: <%= comment.content %><br>
+<%= link_to "Comment User", user_path(User.find_by_id(comment.user_id)) %>
+
+<br>
+<% end %>

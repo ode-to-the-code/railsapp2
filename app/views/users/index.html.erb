@@ -1,7 +1,13 @@
+All Users
+<br><br>
 <% @users.each do |user| %>
-Name: <%= user.name %><br>
-Admin: <%= user.admin %><br><br>
-<% if user.admin %>
-Post Count: <%= user.posts.count %><br><br>
+  <br>Name: <%= link_to user.name, user_path(user) %><br><br>
+  <% if user.comments.count > 0 %>
+  Comments by <%= user.name %>:<br>
+  <% user.comments.each do |comment| %>
+  <%# binding.pry %>
+  <%= link_to comment.title, comment_path(comment) %> <br>
+  <% end %>
 <% end %>
+
 <% end %>

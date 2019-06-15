@@ -1,0 +1,21 @@
+
+
+Make a New Comment!<br>
+<br>
+<%= form_for @comment do |f| %>
+
+<%#= f.hidden_field :post_id %>
+<%#= f.hidden_field :post_id %>
+<%#= f.hidden_field :post_id %>
+<%#= f.hidden_field :user_id, value: current_user.id %>
+<%= f.hidden_field :post_id %>
+
+
+<%= f.label :title %>
+<%= f.text_field :title %><br>
+
+<%= f.label :content %>
+<%= f.text_field :content %>
+<br>
+<%= f.submit %>
+<% end %>

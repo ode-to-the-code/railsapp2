@@ -1,34 +1,61 @@
 class PostsController < ApplicationController
 # require 'pry'
+# validates :name, presence: true
 
 
   def index
-    @posts = Post.all
+    if params[:user_id]
+      @posts = User.find_by_id(params[:user_id]).posts
+    else
+      @posts = Post.all
+    end
     # @posts = "glarg"
   end
 
   def new
     # binding.pry
     # byebug
-    binding.pry
-    require_login
+    # binding.pry
+    # require_login
     @post = Post.new
+    # binding.pry
   end
 
   def create
-    @post = Post.create(post_params)
-    redirect_to post_path(@post)
+    # require_login
+    @post = Post.new(post_params)
+    # if @post.valid?
+    if @post.save
+      @post.user_id = current_user.id
+      redirect_to post_path(@post)
+      return
+    else
+      render :new
+      return
+    end
   end
 
   def show
-    require_login
-    @post = Post.find_by_id(params[:id])
+    # require_login
+    # binding.pry
+    if @post = Post.find_by_id(params[:id])
+      binding.pry
+       @post.user_id = current_user.id
+       render :show
+       return
+    else
+       redirect_to root_path and return
+    end
+    # @post.user_id = current_user.id
+
   end
 
   private
 
     def post_params(*args)
-      params.require(:post).permit(:title, :content)
+      # binding.pry
+      params.require(:post).permit(:title, :content, :user_id)
     end
+
 
 end
