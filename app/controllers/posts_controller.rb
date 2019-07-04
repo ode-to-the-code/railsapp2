@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 # require 'pry'
-# validates :name, presence: true
+  # validates :title, presence: true
+  # validate :title, presence: true
 
 
   def index
@@ -39,7 +40,7 @@ class PostsController < ApplicationController
     # require_login
     # binding.pry
     if @post = Post.find_by_id(params[:id])
-      binding.pry
+      # binding.pry
        @post.user_id = current_user.id
        render :show
        return

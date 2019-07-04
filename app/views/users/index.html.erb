@@ -1,5 +1,11 @@
 All Users
 <br><br>
+<% binding.pry %>
+<h1> "Welcome <%#= current_user.name %>"</h1>
+
+<%= link_to "See all Users Created Today?", "users/created_today" %>
+<br><br>
+
 <% @users.each do |user| %>
   <br>Name: <%= link_to user.name, user_path(user) %><br><br>
   <% if user.comments.count > 0 %>
@@ -11,3 +17,9 @@ All Users
 <% end %>
 
 <% end %>
+
+<!-- 
+# review the bcrypt section and make sure i have all the code
+# then think about the facebook not sending a password thing
+# spend a half hour reading about devise, see if the gem and the engine makes sense. devise hs bcrypt inside it. if it
+<!-- makes sense consider going with it  --> -->

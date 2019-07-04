@@ -40,11 +40,20 @@ class UsersController < ApplicationController
       return
   end
 
+  def created_today
+    # binding.pry
+    # think about why the below line is coming back nil. we made_today# and
+    # an instance, so there should be that 'tom' that we made.
+    # remember to keep the views lean and keep the logic in the model and
+    # use it in the controller.
+    @recent_users = User.made_today?
+  end
+
 
   private
 
   def user_params(*args)
-    params.require(:user).permit(:name, :password, :admin)
+    params.require(:user).permit(:name, :password, :admin, :uid)
   end
 
 end

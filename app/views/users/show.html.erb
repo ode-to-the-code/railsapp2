@@ -5,3 +5,5 @@ Comments: <% @user.comments.each do |comment| %><br><br>
 <%= comment.content %><br>
 
 <% end %>
+<br><br>
+<%= link_to("Back to Users Main?", user_path) %>

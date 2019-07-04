@@ -10,6 +10,7 @@ gem 'rails', '~> 5.2.3'
 gem 'sqlite3'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
