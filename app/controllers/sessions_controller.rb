@@ -11,14 +11,8 @@ class SessionsController < ApplicationController
     if auth
       # check out the syntax for this block, but the if statement should be accssible now
        @user = User.find_or_create_by(uid: auth['uid'])
-      #  @user.each do |u|
-       binding.pry
-       @user.name = auth['info']['name']
-      #  @user.email = auth['info']['email']
-      #  @user.image = auth['info']['image']
 
-      # end
-    # binding.pry
+       @user.name = auth['info']['name']
 
   elsif @user = User.find_by_id(params[:user][:name])
       # binding.pry
@@ -26,13 +20,14 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id
     # add some kind of flash message, it's unclear to the user what
     # happens when they get redirected
+        flash[:success] = "You've signed in!"
         redirect_to user_path(@user) and return
       else
-        redirect_to '/' and return
+        flash.now[:error] = "You've signed in!"
+        render :new
       end
 
     end
-    redirect_to '/' and return
   end
 
 
