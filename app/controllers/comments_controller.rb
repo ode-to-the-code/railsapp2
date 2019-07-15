@@ -42,6 +42,8 @@ class CommentsController < ApplicationController
     # someone is logged in, but it can't find them with current_user?
     # if @user = User.find_by_id(session[:user_id])
     # if current_user
+      @user = current_user
+      # binding.pry
       @comment = @user.comments.build(
         :title => comment_params[:title],
         :content => comment_params[:content],

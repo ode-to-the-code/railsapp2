@@ -6,7 +6,9 @@ class PostsController < ApplicationController
 
   def index
     if params[:user_id]
-      @posts = User.find_by_id(params[:user_id]).posts
+      @user = current_user
+      binding.pry
+      @posts = @user.posts
     else
       @posts = Post.all
     end
@@ -29,23 +31,23 @@ class PostsController < ApplicationController
     if @post.save
       @post.user_id = current_user.id
       redirect_to post_path(@post)
-      return
     else
       render :new
-      return
+# if you had a return here it couldn't hit 33 and 37. but it's more proper to have them in one if/else,
+# since you cna't hit both an if and an else. it can't have the option of hitting both even if it
+# doesn't happen in a particular case
     end
   end
 
   def show
     # require_login
     # binding.pry
-    if @post = Post.find_by_id(params[:id])
+    if !@post = Post.find_by_id(params[:id])
       # binding.pry
-       @post.user_id = current_user.id
-       render :show
-       return
+       redirect_to root_path
     else
-       redirect_to root_path and return
+      @post.user_id = current_user.id
+
     end
     # @post.user_id = current_user.id
 

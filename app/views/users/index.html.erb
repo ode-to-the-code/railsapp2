@@ -1,9 +1,8 @@
-All Users
-<br><br>
-<% binding.pry %>
-<h1> "Welcome <%#= current_user.name %>"</h1>
+<h1>All Users</h1>
+<%# binding.pry %>
+<h2> "Welcome, <%= current_user.name %>!" </h1>
 
-<%= link_to "See all Users Created Today?", "users/created_today" %>
+<%= link_to "See All Users Created Today", "users/created_today" %>
 <br><br>
 
 <% @users.each do |user| %>
@@ -18,8 +17,8 @@ All Users
 
 <% end %>
 
-<!-- 
+<!--
 # review the bcrypt section and make sure i have all the code
 # then think about the facebook not sending a password thing
 # spend a half hour reading about devise, see if the gem and the engine makes sense. devise hs bcrypt inside it. if it
-<!-- makes sense consider going with it  --> -->
+<!-- makes sense consider going with it  --> 

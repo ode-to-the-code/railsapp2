@@ -19,10 +19,13 @@ class SessionsController < ApplicationController
 
       # end
     # binding.pry
+
   elsif @user = User.find_by_id(params[:user][:name])
       # binding.pry
       if @user.authenticate(params[:password])
         session[:user_id] = @user.id
+    # add some kind of flash message, it's unclear to the user what
+    # happens when they get redirected
         redirect_to user_path(@user) and return
       else
         redirect_to '/' and return
@@ -65,19 +68,13 @@ class SessionsController < ApplicationController
   def omniauth
     # byebug
     @user = User.find_or_create_by(username: auth[:info][:email]) do |u|
-      # u.password = SecureRandom.hex
-      u.name = "arbitrary name"
-      u.password = "password"
+      # binding.pry
+      u.name = auth[:info][:name]
+      u.password = SecureRandom.hex
     end
 
     session[:user_id] = @user.id
     redirect_to user_path(@user)
-
-    # this method will look in our database to find any uer with that email. and
-    # if someone exists who does have that email, it will use that first result. or if
-    #  nobody does, it will initialize one. the difference between find and create by is that that
-    #  one saves in one step as well, much like new vs create.
-    # User.where(email: auth[:email]).first_or_initialize
   end
 
 

@@ -1,7 +1,9 @@
 <%= form_tag signin_path do %>
 <%= collection_select :user, :name, User.all, :id, :name %><br>
 <label> Password: </label><br>
-<%= text_field_tag :password %><br>
+<!-- <%#= text_field_tag :password %><br> -->
+<%= password_field_tag :password %><br>
+
 <%= submit_tag 'Sign In' %>
 <%# binding.pry %>
 <% end %>
