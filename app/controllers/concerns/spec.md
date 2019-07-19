@@ -10,7 +10,7 @@
 # add some kind of flash message, it's unclear to the user what
 # happens when they get redirected. maybe be additional- if you try to sign in, and it doesn't
 # work, it doesn't say anything. you only know because the current_user method breaks, and returns nil. # happens with user1.
-good walkthough: 
+good walkthough:
 https://www.youtube.com/watch?v=jB6UXLsInUA
 
 # the omniauth in SessionsController is still hardcoded. like when you signout, and then go to google and use it to login, it tells you 'arbitrary name'.
@@ -18,9 +18,9 @@ https://www.youtube.com/watch?v=jB6UXLsInUA
 # securerandom.hex for the password, and the name is pulled to the signin candidate's auth info.
 
 # clean up the schema, the user password column and the post user_id columns aren't necessary. but is the user id column really unnecessary? i thought that was part of linking it to the user. generally don't leave unused code around
+# -solved
 
-# make sure that authorizations are good, like you shouldn't be able to see the make a new post screen
-# without being logged in
+# make sure that authorizations are good, like you shouldn't be able to see the screen to make a new post without being logged in, even if it doesn't work when an unlogged-in user tries to make a post
 <!-- posts page without being logged in, or use a user id to make a new post in the browser if you're not logged in -->
 # a common live coding exercise is scope method and accompanying route
 

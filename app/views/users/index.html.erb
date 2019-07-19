@@ -1,5 +1,7 @@
+require_login
+
 <h1>All Users</h1>
-<% binding.pry %>
+<%# binding.pry %>
 <h2> "Welcome, <%= current_user.name %>!" </h2>
 
 <%= link_to "See All Users Created Today", "users/created_today" %>

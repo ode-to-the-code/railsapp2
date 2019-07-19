@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+.nav_links {
+     position: absolute;
+     top: 20px;
+     right: 50px;
+ }
