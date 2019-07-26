@@ -3,7 +3,8 @@ Post Content: <%= @post.content %>
 <br>
 Post User's ID: <%= @post.user_id %><br>
 
-Post User's Name: <%= User.find(@post.user_id).name unless nil %><br><br>
+
+
 
 <p>Comments:</p>
 <% @post.comments.each do |comment| %>

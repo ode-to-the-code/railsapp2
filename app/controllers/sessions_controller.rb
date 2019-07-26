@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :require_login, :only => [:omniauth, :destroy]
+  skip_before_action :require_login, :only => [:omniauth, :destroy, :new, :create]
 
   def new
     @user = User.new
