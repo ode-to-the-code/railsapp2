@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :posts, through: :comments
 
-  validates :name, :presence => true 
+  validates :name, :presence => true
 
   # scope :frequent_posters, -> { where("posts_count >= '5' ") }
   # scope :long_names, -> { where("name.length >= '5' ") }
@@ -11,5 +11,5 @@ class User < ApplicationRecord
   # lists any User objects who were created that day, if any were.
   scope :made_today?, -> { where("created_at >=?", Time.zone.today.beginning_of_day) }
   # User.where("created_at >=?", Time.zone.today.beginning_of_day)
-
+  
 end

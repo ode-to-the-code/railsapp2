@@ -4,7 +4,7 @@
 <% @user = User.find_by_id(session[:user_id])%>
   <h1>User Name: <%= @user.name %></h1>
 <% else %>
-  <%#= link_to('Log in with Facebook!', '/auth/facebook') %><br>
+<br>
   <h1> Hi! If you're new, use the sign in link in the sidebar! </h1>
     <h1>Otherwise, feel free to sign in with Google!</h1>
 

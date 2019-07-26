@@ -1,14 +1,9 @@
-# require 'pry'
 
 class UsersController < ApplicationController
-  # before_action :require_login, only: :show
-  # validate :name, presence: true
+
+  skip_before_action :require_login, :only => [:new]
 
   def index
-    if require_login
-      # flash[:error]
-      # binding.pry
-    end
     @users = User.all
   end
 
@@ -17,18 +12,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    # hello
-    # raise params.inspect
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      # "user save failed"
       render :new
     end
-    # raise session.inspect
-    # redirect_to user_path(@user)
+
   end
 
   def show

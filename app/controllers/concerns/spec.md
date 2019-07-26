@@ -1,6 +1,6 @@
 # Specifications for the Rails Assessment
 
-# there's a rails helper method that makes the entry of the password unreadable or not plain text,l
+# there's a rails helper method that makes the entry of the password unreadable or not plain text, l
 # similar to text_field in formbuilder.
 # -solved, I changed it to password_field_tag in the sessions new, and to password_field in the users new form_for
 
@@ -10,6 +10,9 @@
 # add some kind of flash message, it's unclear to the user what
 # happens when they get redirected. maybe be additional- if you try to sign in, and it doesn't
 # work, it doesn't say anything. you only know because the current_user method breaks, and returns nil. # happens with user1.
+was working off these sources:
+http://stevenleiva.com/flash-messages-in-rails
+https://stackoverflow.com/questions/22566072/rails-4-flash-notice
 good walkthough:
 https://www.youtube.com/watch?v=jB6UXLsInUA
 
@@ -22,8 +25,7 @@ https://www.youtube.com/watch?v=jB6UXLsInUA
 
 # make sure that authorizations are good, like you shouldn't be able to see the screen to make a new post without being logged in, even if it doesn't work when an unlogged-in user tries to make a post
 <!-- posts page without being logged in, or use a user id to make a new post in the browser if you're not logged in -->
-# a common live coding exercise is scope method and accompanying route
-
+# a common live coding exercise is an ActiveRecord scope method and accompanying route
 #
 
 # it seems like it's almost a point of respect or craft pride to clean up the code before presenting it
@@ -41,6 +43,24 @@ NOTES
     #  nobody does, it will initialize one. the difference between find and create by is that that
     #  one saves in one step as well, much like new vs create.
     # User.where(email: auth[:email]).first_or_initialize
+
+
+    # before_action :require_login, only: :show
+    # review skip before action to make exemptions for blanket validations
+    # from before action. you can put the original before action in the application controller
+
+    # a user should only be able to edit or change posts that they created
+    # make a new branch to mess ar
+
+    # it's very difficult to read code with lots of other stuff
+    # people should be able to take it in at a glance. most coding is social and should
+    # be easily understood in a group context
+    # small comments can fine as like notes for future coders.
+    # validate :name, presence: true
+
+    # maybe check out 'comment conventions'
+    # reach out to jen
+  ---------------
 
 Specs:
 - [x] Using Ruby on Rails for the project

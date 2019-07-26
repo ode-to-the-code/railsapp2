@@ -1,11 +1,8 @@
 
-<%# binding.pry %>
-<% require_login %>
-<%# raise @posts.inspect %>
+
 <h1> Here Are All Requested Posts! </h1>
 
 <% @posts.each do |post| %>
-<%# raise @posts.first.users.inspect %>
 
 Post Title: <%= link_to post.title, post_path(post) %><br>
 Post Content: <%= post.content %><br>
@@ -13,11 +10,11 @@ Post ID: <%= post.id %><br>
 
   <% if post.comments.count > 0 %>
     <% post.comments.each do |comment| %>
-    Comment Title: <%= link_to comment.title, comment_path(comment) %>
+    Comment Title: <%= link_to comment.title, comment_path(comment) %><br>
     <% end %>
   <% end %>
 
-<%#= User.find(post.user_id) %><br><br>
+<br><br>
 
 
 <% end  %>
