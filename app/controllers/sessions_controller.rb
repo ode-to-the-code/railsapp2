@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
         flash[:success] = "You've signed in!"
         redirect_to user_path(@user) and return
       else
-        flash.now[:error] = "You've signed in!"
+        flash.now[:error] = "You didn't sign in successfully. Check your data!"
         render :new
       end
 

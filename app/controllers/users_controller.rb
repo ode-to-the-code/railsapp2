@@ -5,6 +5,10 @@ class UsersController < ApplicationController
   # validate :name, presence: true
 
   def index
+    if require_login
+      # flash[:error]
+      # binding.pry
+    end
     @users = User.all
   end
 
