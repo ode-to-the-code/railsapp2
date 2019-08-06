@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :require_login
 
+
   def index
     if params[:user_id]
       @user = current_user
@@ -41,6 +42,14 @@ class PostsController < ApplicationController
     @post.update(title: params[:post][:title], content: params[:post][:content])
     redirect_to post_path(@post)
   end
+
+  def destroy
+    @post = Post.find_by_id(params[:id])
+    @post.destroy
+    redirect_to posts_path
+  end
+
+
 
   private
 

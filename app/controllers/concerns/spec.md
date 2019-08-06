@@ -47,11 +47,15 @@ also just delete all the old posts made before this fix)
 
 tips
 -check out sinatra project, there was similar stuff
+
 -things will be simpler if a post belongs to a user. this doesn't conflict with
 things as they are now, but this structure aligns more closely with the requirements i am missing
+
 -when i complete them then sign up for another time. can write down questions if i get too stuck. can also send a slack message or check out the study groups
+
 -pseudocoding can be very helpful. think about 'what do i want to accomplish', helps you keep track of what you want to get done. not just 'i want this to update', but
 i want to keep track of what object to update, then send it somewhere else. Like 'i want to find the post, update the post and send it somewhere else'
+
 -reflect on the flow, where data is moving through an application. like where does this variable take its meaning, where does it go next, what is its purpose later on
 
 
