@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :require_login
-  
+
   def index
     if params[:user_id]
       @user = current_user
@@ -18,8 +18,8 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user_id = current_user.id
     if @post.save
-      @post.user_id = current_user.id
       redirect_to post_path(@post)
     else
       render :new
@@ -29,10 +29,17 @@ class PostsController < ApplicationController
   def show
     if !@post = Post.find_by_id(params[:id])
        redirect_to root_path
-    else
-      @post.user_id = current_user.id
-
     end
+  end
+
+  def edit
+    @post = Post.find_by_id(params[:id])
+  end
+
+  def update
+    @post = Post.find_by_id(params[:id])
+    @post.update(title: params[:post][:title], content: params[:post][:content])
+    redirect_to post_path(@post)
   end
 
   private

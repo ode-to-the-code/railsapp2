@@ -37,7 +37,39 @@ https://www.youtube.com/watch?v=jB6UXLsInUA
 
 NOTES
 
+
+for next time, focus on increasing the app's functionality
+-add edit and update capability. focus on routes just for Post first
+-then, make sure that you're only editing posts that your user_id is attached to
+(since it's fixed now so that each post actually does show the user id. so just block
+access to the edit and update pages unless the same user is signed in. maybe i can
+also just delete all the old posts made before this fix)
+
+tips
+-check out sinatra project, there was similar stuff
+-things will be simpler if a post belongs to a user. this doesn't conflict with
+things as they are now, but this structure aligns more closely with the requirements i am missing
+-when i complete them then sign up for another time. can write down questions if i get too stuck. can also send a slack message or check out the study groups
+-pseudocoding can be very helpful. think about 'what do i want to accomplish', helps you keep track of what you want to get done. not just 'i want this to update', but
+i want to keep track of what object to update, then send it somewhere else. Like 'i want to find the post, update the post and send it somewhere else'
+-reflect on the flow, where data is moving through an application. like where does this variable take its meaning, where does it go next, what is its purpose later on
+
+
+Problem:
+when I go to the all posts section with user 12, every post shows user 12 as its ‘post user name’. This happened with another user when I checked, and presumably is true for every user.
+
+Related requirement
+Want a user, like user 12, to only be able to delete or change posts that they themselves made. and also I want a user to be able to see all the posts that they made.
+
+Other
+Maybe any user can see any post. But to actually change it or delete it, you would have to be the same user that created it in the first place.
+So there should also be a page where you see all the posts you made, or at least it could be listed on the user’s show page.
+
+So I would need to save who makes the post, when the post is first made. I can just save the id of whatever user was logged in at that time. Like when the post create action gets fired, I can associate the
+
+..............
 <!-- this was in the sessions controller  -->
+
     # this method will look in our database to find any uer with that email. and
     # if someone exists who does have that email, it will use that first result. or if
     #  nobody does, it will initialize one. the difference between find and create by is that that
