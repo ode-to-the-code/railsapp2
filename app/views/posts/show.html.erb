@@ -1,7 +1,6 @@
 Post Title: <%= @post.title %><br>
 Post Content: <%= @post.content %>
 <br>
-Post User's ID: <%= @post.user_id %><br>
 
 
 
@@ -15,5 +14,7 @@ Post User's ID: <%= @post.user_id %><br>
 <br>
 <h2> <%= link_to "Make a new comment on this post?", new_post_comment_path(@post) %> </h2>
 
+<% if @post.user == current_user %>
 <h2> <%= link_to 'Delete this post?', @post, :method => :delete, :confirm => "You sure?",
                                 :title => "Delete #{@post.title}" %> </h2>
+<% end %>

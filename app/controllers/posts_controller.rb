@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   def index
     if params[:user_id]
       @user = current_user
-      binding.pry
+      # binding.pry
       @posts = @user.posts
     else
       @posts = Post.all

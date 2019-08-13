@@ -2,7 +2,6 @@
 <h1> Hi! You are:</h1>
 <h1>User #<%= session[:user_id] %> </h1>
 <% @user = User.find_by_id(session[:user_id])%>
-  <h1>User Name: <%= @user.name %></h1>
 <% else %>
 <br>
   <h1> Hi! If you're new, use the sign in link in the sidebar! </h1>

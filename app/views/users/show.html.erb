@@ -1,9 +1,12 @@
-Name: <%= @user.name %><br><br>
+<h1>Welcome, <%= @user.name.capitalize %>.<br><br> </h1>
 <!-- Admin? <%#= @user.admin %> -->
-Comments: <% @user.comments.each do |comment| %><br><br>
+<h2>Your Comments: </h2> <% @user.comments.each do |comment| %>
 <%= link_to comment.title, comment_path(comment) %><br>
-<%= comment.content %><br>
-
+<%= comment.content %><br><br>
 <% end %>
 <br><br>
+<h2> Options: </h2>
 <%= link_to("Back to Users Main?", users_path) %>
+<br><br>
+<%= link_to 'Delete your account?', @user, :method => :delete, :confirm => "You sure?",
+                                :title => "Delete Account" %>

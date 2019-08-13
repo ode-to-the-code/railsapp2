@@ -1,4 +1,4 @@
 <h1>Comment Title: <%= @comment.title.capitalize %><br> </h1>
 Comment Content: <%= @comment.content %><br>
 Comment User: <%= link_to @comment.user.name, user_path(User.find_by_id(@comment.user_id)) %><br>
-Comment Post: <%= link_to @comment.post.title, post_path(Post.find_by_id(@comment.post_id)) %>
+<!-- Comment Post: <%#= link_to @comment.post.title, post_path(Post.find_by_id(@comment.post_id)) %> -->

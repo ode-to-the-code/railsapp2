@@ -1,7 +1,6 @@
 
 class UsersController < ApplicationController
-
-  skip_before_action :require_login, :only => [:new]
+  skip_before_action :require_login, :only => [:new, :create]
 
   def index
     @users = User.all
@@ -9,9 +8,11 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    # binding.pry
   end
 
   def create
+    # binding.pry
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
@@ -42,6 +43,13 @@ class UsersController < ApplicationController
     # remember to keep the views lean and keep the logic in the model and
     # use it in the controller.
     @recent_users = User.made_today?
+  end
+
+  def destroy
+    @user = current_user
+    @user.destroy
+    session[:user_id].clear
+    redirect_to '/'
   end
 
 
