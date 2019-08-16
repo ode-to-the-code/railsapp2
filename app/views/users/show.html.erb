@@ -1,5 +1,17 @@
 <h1>Welcome, <%= @user.name.capitalize %>.<br><br> </h1>
 <!-- Admin? <%#= @user.admin %> -->
+<h1> Your Posts: </h1>
+<% @user.posts.each do |post| %>
+<%= link_to post.title, post_path(post) %><br>
+<% end %>
+<br>
+<h1> Your Commented Posts: </h1>
+<% @user.commented_posts.each do |commented_post| %>
+<%= link_to commented_post.title, post_path(commented_post) %><br>
+<% end %>
+<br>
+
+<br>
 <h2>Your Comments: </h2> <% @user.comments.each do |comment| %>
 <%= link_to comment.title, comment_path(comment) %><br>
 <%= comment.content %><br><br>

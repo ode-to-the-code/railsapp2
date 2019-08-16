@@ -11,14 +11,11 @@ class CommentsController < ApplicationController
   end
 
   def new
-
     @comment = Comment.new(post_id: params[:post_id])
-
   end
 
   def create
     require_login
-
       @user = current_user
       @comment = @user.comments.build(
         :title => comment_params[:title],

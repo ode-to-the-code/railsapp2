@@ -3,7 +3,7 @@ class User < ApplicationRecord
 
   has_many :comments
   has_many :posts
-  has_many :posts, through: :comments
+  has_many :commented_posts, through: :comments, source: :post
 
   validates :name, :presence => true
 
