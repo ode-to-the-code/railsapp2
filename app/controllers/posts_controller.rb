@@ -39,7 +39,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find_by_id(params[:id])
-    binding.pry
+    # binding.pry
     if @post.user_id == current_user.id
         @post.update(title: params[:post][:title], content: params[:post][:content])
     end

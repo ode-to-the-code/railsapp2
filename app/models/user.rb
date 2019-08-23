@@ -10,5 +10,8 @@ class User < ApplicationRecord
 
   scope :made_today?, -> { where("created_at >=?", Time.zone.today.beginning_of_day) }
 
+  # scope :name_includes_i, -> { where(name: includes{"i"}) }
+
+  scope :created_before, ->(time) { where("created_at < ?", time) }
 
 end
