@@ -1,3 +1,18 @@
+flash messages
+
+uniqueness checks for users
+
+duplicate update fhecks for edit
+
+individual comments not important enough to have their own show oage
+
+helpers and concerns folder are good for putting method for views and controllers. but rails
+is largely structured already, as opposed to react
+
+send over the scope method. for the user with the most comments.
+where, group, order by, count. includes and joins 
+
+
 # Specifications for the Rails Assessment
 
 # there's a rails helper method that makes the entry of the password unreadable or not plain text, l

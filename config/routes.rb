@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
   end
+  
+  get '/users/mostcomments' => 'users#most_comments'
 
   resources :users do
     resources :posts
@@ -21,7 +23,6 @@ Rails.application.routes.draw do
 
   get '/signup' => 'users#new'
   get '/signout' => "sessions#destroy"
-
 
   # get '/auth/facebook/callback' => "sessions#create"
   get '/auth/facebook/callback' => "sessions#create"

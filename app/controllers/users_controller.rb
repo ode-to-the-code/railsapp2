@@ -37,13 +37,16 @@ class UsersController < ApplicationController
   end
 
   def created_today
-    # binding.pry
-    # think about why the below line is coming back nil. we made_today# and
-    # an instance, so there should be that 'tom' that we made.
-    # remember to keep the views lean and keep the logic in the model and
-    # use it in the controller.
     @recent_users = User.made_today?
+    # binding.pry
   end
+
+  # binding.pry
+  def most_comments
+    @user = User.most_comments
+    # binding.pry
+  end
+
 
   def destroy
     @user = current_user
