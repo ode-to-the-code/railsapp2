@@ -1,13 +1,15 @@
-Post Title: <%= @post.title %><br>
+<h1>Post: <%= @post.title %><br> </h1>
 Post Content: <%= @post.content %>
 <br>
 
 
 
-
-<p>Comments:</p>
+<h1>Comments: </h1>
 <% @post.comments.each do |comment| %>
-  <div><%= link_to comment.title, comment_path(comment) %></div>
+  <div><%#= link_to comment.title, comment_path(comment) %></div>
+  <div> Title: <%=  comment.title %> </div>
+  <div> Content: <%= comment.content %>  </div>
+  <br>
 <% end %>
 
 <br>
