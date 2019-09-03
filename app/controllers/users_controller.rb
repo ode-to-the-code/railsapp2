@@ -43,7 +43,7 @@ class UsersController < ApplicationController
 
   # binding.pry
   def most_comments
-    @user = User.most_comments
+    @user = User.most_comments.first
     # binding.pry
   end
 
