@@ -2,15 +2,15 @@ flash messages
 
 uniqueness checks for users
 
-duplicate update fhecks for edit
+duplicate update checks for edit
 
-individual comments not important enough to have their own show oage
+individual comments not important enough to have their own show page
 
 helpers and concerns folder are good for putting method for views and controllers. but rails
 is largely structured already, as opposed to react
 
 send over the scope method. for the user with the most comments.
-where, group, order by, count. includes and joins 
+where, group, order by, count. includes and joins
 
 
 # Specifications for the Rails Assessment

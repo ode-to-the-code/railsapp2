@@ -8,11 +8,9 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    # binding.pry
   end
 
   def create
-    # binding.pry
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
@@ -24,10 +22,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    # binding.pry
-    # raise params.inspect
-    # require_login
-    # binding.pry
     if  @user = User.find_by_id(params[:id])
       render :show
       return
@@ -38,13 +32,10 @@ class UsersController < ApplicationController
 
   def created_today
     @recent_users = User.made_today?
-    # binding.pry
   end
 
-  # binding.pry
   def most_comments
     @user = User.most_comments.first
-    # binding.pry
   end
 
 
